@@ -1,0 +1,23 @@
+import * as React from "react";
+import {
+  Show,
+  SimpleShowLayout,
+  ShowProps,
+  DateField,
+  TextField,
+} from "react-admin";
+
+export const ModelShow = (props: ShowProps): React.ReactElement => {
+  return (
+    <Show {...props}>
+      <SimpleShowLayout>
+        <DateField source="createdAt" label="Created At" />
+        <TextField label="ID" source="id" />
+        <TextField label="model_code" source="modelCode" />
+        <TextField label="model_id" source="modelId" />
+        <TextField label="model_name" source="modelName" />
+        <DateField source="updatedAt" label="Updated At" />
+      </SimpleShowLayout>
+    </Show>
+  );
+};

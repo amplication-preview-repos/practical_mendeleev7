@@ -1,0 +1,57 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DB_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Part {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  partCode  String?
+  partId    Int?
+  partName  String?
+  updatedAt DateTime @updatedAt
+}
+
+model Sku {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  partno    String?
+  skuId     Int?
+  skuItemId String?
+  skuManuId String?
+  updatedAt DateTime @updatedAt
+}
+
+model Manufacture {
+  createdAt       DateTime @default(now())
+  id              String   @id @default(cuid())
+  manufactureCode String?
+  manufactureId   Int?
+  manufactureName String?
+  updatedAt       DateTime @updatedAt
+}
+
+model Model {
+  createdAt DateTime @default(now())
+  id        String   @id @default(cuid())
+  modelCode String?
+  modelId   Int?
+  modelName String?
+  updatedAt DateTime @updatedAt
+}
+
+model Item {
+  createdAt   DateTime @default(now())
+  id          String   @id @default(cuid())
+  itemCode    String?
+  itemId      Int?
+  itemModel   String?
+  itemModelId String?
+  itemPart    String?
+  itemPartId  String?
+  updatedAt   DateTime @updatedAt
+}
